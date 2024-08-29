@@ -1,0 +1,279 @@
+<?php
+
+$connect = mysqli("localhost","root","login");
+if(isset($_POST['Log In']))
+{
+
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+    $query = "INSERT INTO loginn(email,password) VALUES('$email','$pass')";
+    $result = mysqli_query($connect,$query);
+
+    if($result) {
+        echo "<script>alter('You loggedin')</script>";
+    }else{
+        echo "<script>alter('Failed to login')</script>";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQECVnaQBWgmbDRe4v8VAvXP1SnQgNbMaXS0w&s"
+                    alt="">
+            </div>
+            <h2>FoodFlix</h2>
+            <div class="right">
+                <ul>
+                    <a id="homes" href="#home">HOME</a>
+                    <a id="menue" href="#food">MENUE</a>
+                    <a id="tracks" href="#track">ORDER MANAGEMENT</a>
+                    <a id="feedbacks" href="#feedback">CUST FEEDBACK</a>
+                    <button id="logBtn">Log In</button>
+                </ul>
+            </div>
+        </nav>
+
+
+        <!-- login -->
+         <form method="post">
+        <div class="loginPage">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter Email" id="email">
+            <label>password</label>
+            <input type="password" name="pass" placeholder="Enter password" id="pass">
+            <button id="logedBtn" name="logedBtn">Log In</button>
+        </div>
+        </form>
+        <div class="main" id="home">
+            <div class="maintext">
+                <h1>IN THE MOOD FOR <br> FOOD</h1><br>
+                <h2>Upto 30% OFF</h2><br>
+                <p>"Discover a world of flavors with our meticulously crafted dishes that blend tradition with
+                    innovation. Each bite tells a story of passion and culinary expertise. Our menu promises to delight
+                    every palate."</p><br>
+                    <a href="order.html">
+                <button>Order Now</button>
+                </a>
+            </div>
+        
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdzltTCrJtT7SfKaQdRZnW1eGzXIdoZ4fgzw&s" alt="">
+        </div>
+        <div class="separation"></div>
+        <!-- cards -->
+
+        <div class="foocards" id="food">
+            <div class="head">
+                <h1>MENUE</h1>
+            </div>
+            <div class="card">
+                <div class="crd">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2cbNXgl0PXIYUIvJNWRpTjUbpuxQ0o7RR6w&s"
+                        alt="">
+                    <div class="foodtext">
+                        <h2>Butter paneer</h2><br>
+                        <p> If you are a vegetarian who is looking to increase protein intake, paneer is one of the
+                            finest options.</p><br>
+                           <a href="order.html"> 
+                        <button>Order Now</button> </a>
+                    </div>
+                </div>
+                <div class="crd">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxIWWE2h6yCuwzDWJJjybNxFbSj31AM4GAqA&s"
+                        alt="">
+                    <div class="foodtext">
+                        <h2>Chicken Steak</h2><br>
+                        <p>Steak is a food that can be described as tender, flavorful, juicy, and cooked to perfection.
+                        </p><br>
+                        <a href="order.html"> 
+                            <button>Order Now</button> </a>
+                    </div>
+                </div>
+                <div class="crd">
+                    <img src="https://images.indianexpress.com/2023/03/chicken-manchurian.jpg" alt="">
+                    <div class="foodtext">
+                        <h2>Chicken Manchurian</h2><br>
+                        <p>It is a traditional and most popular dish, with its nutritons and heaith benefits </p><br>
+                        <a href="order.html"> 
+                            <button>Order Now</button> </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="crd">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuK53sbPcv8yKP-RBbfcMlo1WUG9QVyFe8ZA&s"
+                        alt="">
+                    <div class="foodtext">
+                        <h2>Chicken Tikka</h2><br>
+                        <p>Chicken tikka masala is quite rich in protein, adding up to around 38 grams per serving.</p>
+                        <br>
+                        <a href="order.html"> 
+                            <button>Order Now</button> </a>
+                    </div>
+                </div>
+            
+                <div class="crd">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAHWd2vJyvrcn-daeJBsOO-4nK-B_werePTw&s"
+                        alt="">
+                    <div class="foodtext">
+                        <h2>Chiken malai boti</h2><br>
+                        <p>Malai Boti is delicious and easy to prepare. it is a good source of lean protein.</p><br>
+                        <a href="order.html"> 
+                            <button>Order Now</button> </a>
+                    </div>
+                </div>
+    
+                <div class="crd">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Op4tj5tcCtK-Pm52MgSvZZ2EKLa2n9amNQ&s"
+                        alt="">
+                    <div class="foodtext">
+                        <h2>Chicken Biryani</h2><br>
+                        <p>With its aromatic spices, biryani has captured the hearts and taste buds of millions across
+                            the country.</p><br>
+                            <a href="order.html"> 
+                                <button>Order Now</button> </a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card">
+                <div class="crd">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrepNCmRqQWOa03IoVkXVkjGoWzu7sVfFtpA&s"
+                        alt="">
+                    <div class="foodtext">
+                        <h2>Chicken Sandwich</h2><br>
+                        <p> The sandwiches are filling and lower in fat and calories compared to other fast food
+                            options. </p><br>
+                            <a href="order.html"> 
+                                <button>Order Now</button> </a>
+                    </div>
+                </div>
+        
+                <div class="crd">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuGSVGPSxueFiLom5S8urzfy1a4_rwVh0RgA&s"
+                        alt="">
+                    <div class="foodtext">
+                        <h2>Chicken chowmin</h2><br>
+                        <p> It's the perfect balance of sweet and salty and makes putting down your chopsticks
+                            absolutely impossible.</p><br>
+                            <a href="order.html"> 
+                                <button>Order Now</button> </a>
+                    </div>
+                </div>
+            
+                <div class="crd">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBQkn9wYIhnym59AZ-4rdRelW6xfPh4Yuxiw&s"
+                        alt="">
+                    <div class="foodtext">
+                        <h2>Chicken Pizza</h2><br>
+                        <p>Pizza is one of the most popular foods in the world .It is made with different toppings.</p>
+                        <br>
+                        <a href="order.html"> 
+                            <button>Order Now</button> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+        <br><br>
+
+        <div class="separation"></div>
+
+          <!-- order management -->
+        <div class="management" id="track">
+            <div class="head">
+                <h1>Manage Order</h1>
+            </div>
+            <div class="placeorder">
+                <form action="">
+                    <h1>Place Order</h1>
+                    <div class="Name">
+                        <input type="text" placeholder="Enter your Full name">
+                    </div>
+                    <div class="Email">
+                        <input type="text" placeholder="Email Address">
+                    </div>
+                    <div class="Date">
+                        <input type="date">
+                    </div> 
+                    <div class="Time">
+                        <input type="time" >
+                    </div>
+                    <div>
+                        <input type="number" placeholder="Table Number">
+                    </div>
+                    <a href="index.html"><span><button>Submit</button></span></a>
+                </form>
+            </div>
+
+        </div> <br><br>
+        <div class="separation"></div> 
+
+        <!-- User Feedback -->
+        <div class="feedback" id="feedback">
+            <form action="">
+                <h1>Give your feedback</h1>
+                <div class="name">
+                    <input type="text" placeholder="Enter your Full name">
+                </div>
+                <div class="email">
+                    <input type="text" placeholder="Email Address">
+                </div>
+                <textarea cols="10" rows="10" placeholder="Ener your openion here....."></textarea>
+                <span><button>Send</button></span>
+            </form>
+        </div> -->
+
+        <!-- footer -->
+        <footer>
+            <div class="footer">
+                <div class="text">
+                    <h2>About us</h2>
+                    <p>FoodFlix is Pakistan's largest digital food network. Our Recipes are loved by millions. Our aim
+                        is
+                        to get people to fall in love with the cooking! For product placement please reach out to us at.
+                    </p>
+                </div>
+                <div class="text">
+                    <h2>OurFoods</h2>
+                    <p>Quality</p>
+                    <p>Price</p>
+                    <p>Best Foods</p>
+
+                </div>
+                <div class="text">
+                    <h2>Customer</h2>
+                    <p>Service</p>
+                    <p>Relation</p>
+                    <p>Delivery</p>
+                    <p>More</p>
+                </div>
+                <div class="text">
+                    <h2>ContactUs</h2>
+                    <p>J1-Block</p>
+                    <p>Johar Town Phase2</p>
+                    <p>Thokar NiazBaig</p>
+                    <p>0026-489960</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
