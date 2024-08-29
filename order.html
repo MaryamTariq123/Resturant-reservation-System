@@ -1,0 +1,65 @@
+<?php
+
+$connect = mysqli("localhost","root","login");
+if(isset($_POST['order']))
+{
+
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+
+    $query = "INSERT INTO order(fullname,email) VALUES('$fullname','$email')";
+    $result = mysqli_query($connect,$query);
+
+    if($result) {
+        echo "<script>alter('You place order')</script>";
+    }else{
+        echo "<script>alter('Failed')</script>";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- order management -->
+    <div class="management">
+        <div class="head">
+            <h1>Manage Order</h1>
+        </div>
+        <div class="placeorder">
+            <form action="post">
+                <h1>Place Order</h1>
+                <div class="Name">
+                <label>fullname</label>
+                    <input type="text" name="fullname" placeholder="Enter your Full name" id="fullname">
+                </div>
+                <div class="Email">
+                <label>Email</label>
+                    <input type="text" name="email" placeholder="Email Address" id="fulladdress">
+                </div>
+                <div class="Date">
+                <label>fulldate</label>
+                    <input type="date" name="fulldate" id="fulldate">
+                </div>
+                <div class="Time">
+                <label>Time</label>
+                    <input type="time" name="time" id="fulltime" >
+                </div>
+                <div>
+                    <input type="number" placeholder="Table Number" id="fullnumber">
+                </div>
+                <a href="index.html"><span><button>Submit</button></span></a>
+                    
+            </form>
+        </div>
+
+    </div> <br><br>
+
+</body>
+</html>
